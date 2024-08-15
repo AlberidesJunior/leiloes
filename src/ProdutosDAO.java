@@ -31,14 +31,13 @@ public class ProdutosDAO {
             prep.setString(3, produto.getStatus());
             prep.executeUpdate();
 
-            //JOptionPane.showMessageDialog(null, "Produto Cadastrado com sucesso!");            
+            JOptionPane.showMessageDialog(null, "Produto Cadastrado com sucesso!");            
             
         } catch (SQLException ex) {
-            //System.out.println("Erro de conexão: " + ex.getMessage());
+            System.out.println("Erro de conexão: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Produto não Cadastrado!");
             //return ex.getErrorCode();
         }
-        
-        //conn = new conectaDAO().connectDB();
         
     }
     
