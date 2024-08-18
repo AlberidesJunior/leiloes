@@ -42,6 +42,25 @@ public class ProdutosDAO {
         
     }
     
+    public void venderProduto (Integer id){
+        
+        try {
+            
+            conn = new conectaDAO().connectDB();
+            prep = conn.prepareStatement("UPDATE produtos SET status=\"Vendido\" WHERE id=?");
+            prep.setInt(1,id );
+            prep.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Produto Atualizado com sucesso!");            
+            
+        } catch (SQLException ex) {
+            System.out.println("Erro de conexão: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Produto não Cadastrado!");
+            //return ex.getErrorCode();
+        }
+        
+    }
+    
     public ArrayList<ProdutosDTO> listarProdutos(){
         
         String sql = "SELECT * FROM produtos";
